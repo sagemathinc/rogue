@@ -106,7 +106,6 @@ main(int argc, char **argv, char **envp)
     if (argc == 2 && strcmp(argv[1], "-s") == 0) {
 	noscore = TRUE;
 	score(0, -1, 0);
-        md_deinit();
 	exit(0);
     }
 
@@ -402,7 +401,6 @@ void
 my_exit(int st)
 {
     resetltchars();
-    md_deinit();
     exit(st);
 }
 
