@@ -1,5 +1,7 @@
 # ROGUE 5.3 - 5.4
 
+**- Modified to compile for ARM on builtroot -**
+
 Rogue version 5.3-4.4.2020.1, derived from Rogue version 5.4.4 at https://github.com/Davidslv/rogue.git,
 
 This is an enchanced version which can either run Monsters, Objects and other behavior like Traps, as version 5.3 (default, 1982) or the latest known version 5.4.4. Use -5.4 to run in 5.4.4 mode, -5.3 otherwise (5.3 is default).
@@ -22,7 +24,7 @@ Distributed under BSD License (see LICENSE.TXT).
 ```
 
 ```
-Cloned from https://github.com/Davidslv/rogue.git
+Cloned from https://github.com/fiorenzo1963/rogue.git
 ```
 
 Build as follows:

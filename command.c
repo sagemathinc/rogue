@@ -294,7 +294,7 @@ over:
 		    wrefresh(curscr);
 		when 'v':
 		    after = FALSE;
-		    msg("version %s. (mctesq was here)", release);
+		    msg("version %s. (mctesq and Sol were here)", release);
 		when 'S': 
 		    after = FALSE;
 		    save_game();
