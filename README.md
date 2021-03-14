@@ -1,6 +1,6 @@
 # ROGUE 5.3 - 5.4
 
-**- Modified to compile for ARM on builtroot -**
+**- Modified to compile for ARM on buildroot -**
 
 Rogue version 5.3-4.4.2020.1, derived from Rogue version 5.4.4 at https://github.com/Davidslv/rogue.git,
 
