@@ -127,15 +127,15 @@ extern FILE	*scoreboard;
  */
 
 void    auto_save(int);
-void	come_down();
+void	come_down(int dummy);
 void	doctor();
 void	end_line();
 void    endit(int sig);
 void	getltchars();
-void	land();
+void	land(int dummy);
 void    leave(int);
 void	my_exit();
-void	nohaste();
+void	nohaste(int dummy);
 void	playit();
 void    playltchars(void);
 void	print_disc(char);
@@ -144,12 +144,12 @@ void    resetltchars(void);
 void	rollwand();
 void	runners();
 void	set_order();
-void	sight();
+void	sight(int dummy);
 void	stomach();
 void	swander();
 void	tstp(int ignored);
-void	unconfuse();
-void	unsee();
+void	unconfuse(int dummy);
+void	unsee(int dummy);
 void	visuals(int dummy);
 
 char	add_line(char *fmt, char *arg);

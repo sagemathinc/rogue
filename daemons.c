@@ -39,7 +39,7 @@ void doctor(int dummy) {
  * Swander:
  *	Called when it is time to start rolling for wandering monsters
  */
-void swander() { start_daemon(rollwand, 0, BEFORE); }
+void swander(int dummy) { start_daemon(rollwand, 0, BEFORE); }
 
 /*
  * rollwand:
@@ -61,7 +61,7 @@ void rollwand(int dummy) {
  * unconfuse:
  *	Release the poor player from his confusion
  */
-void unconfuse() {
+void unconfuse(int dummy) {
   player.t_flags &= ~ISHUH;
   msg("you feel less %s now", choose_str("trippy", "confused"));
 }
@@ -70,7 +70,7 @@ void unconfuse() {
  * unsee:
  *	Turn off the ability to see invisible
  */
-void unsee() {
+void unsee(int dummy) {
   register THING *th;
 
 #ifdef MASTER
@@ -86,7 +86,7 @@ void unsee() {
  * sight:
  *	He gets his sight back
  */
-void sight() {
+void sight(int dummy) {
   if (on(player, ISBLIND)) {
     extinguish(sight);
     player.t_flags &= ~ISBLIND;
@@ -100,7 +100,7 @@ void sight() {
  * nohaste:
  *	End the hasting
  */
-void nohaste() {
+void nohaste(int dummy) {
   player.t_flags &= ~ISHASTE;
   msg("you feel yourself slowing down");
 }
@@ -164,7 +164,7 @@ void stomach(int dummy) {
  * come_down:
  *	Take the hero down off her acid trip.
  */
-void come_down() {
+void come_down(int dummy) {
   register THING *tp;
   register bool seemonst;
 
@@ -247,7 +247,7 @@ void visuals(int dummy) {
  * land:
  *	Land from a levitation potion
  */
-void land() {
+void land(int dummy) {
   player.t_flags &= ~ISLEVIT;
   msg(choose_str("bummer!  You've hit the ground",
                  "you float gently to the ground"));
