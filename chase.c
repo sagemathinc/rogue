@@ -22,7 +22,7 @@ static coord ch_ret; /* Where chasing takes you */
  * runners:
  *	Make all the running monsters move.
  */
-void runners() {
+void runners(int dummy) {
   register THING *tp;
   THING *next;
   bool wastarget;

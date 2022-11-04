@@ -150,7 +150,7 @@ void	swander();
 void	tstp(int ignored);
 void	unconfuse();
 void	unsee();
-void	visuals();
+void	visuals(int dummy);
 
 char	add_line(char *fmt, char *arg);
 

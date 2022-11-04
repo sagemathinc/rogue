@@ -17,7 +17,7 @@
  * doctor:
  *	A healing daemon that restors hit points after rest
  */
-void doctor() {
+void doctor(int dummy) {
   register int lv, ohp;
 
   lv = pstats.s_lvl;
@@ -46,7 +46,7 @@ void swander() { start_daemon(rollwand, 0, BEFORE); }
  *	Called to roll to see if a wandering monster starts up
  */
 int between = 0;
-void rollwand() {
+void rollwand(int dummy) {
   if (++between >= 4) {
     if (roll(1, 6) == 4) {
       wanderer();
@@ -109,7 +109,7 @@ void nohaste() {
  * stomach:
  *	Digest the hero's food
  */
-void stomach() {
+void stomach(int dummy) {
   register int oldfood;
   int orig_hungry = hungry_state;
 
@@ -206,7 +206,7 @@ void come_down() {
  * visuals:
  *	change the characters for the player
  */
-void visuals() {
+void visuals(int dummy) {
   register THING *tp;
   register bool seemonst;
 

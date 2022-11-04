@@ -163,8 +163,12 @@ THING *attack_5_3(THING *mp) {
         else
           msg("a sting has weakened you");
       }
-      else if (!terse) msg("a sting momentarily weakens you");
-      else msg("sting has no effect");
+      else if (!terse) {
+        msg("a sting momentarily weakens you");
+      }
+      else {
+        msg("sting has no effect");
+      }
       when 'W' : case 'V' :
           /*
            * Wraiths might drain energy levels, and Vampires

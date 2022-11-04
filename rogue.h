@@ -13,7 +13,7 @@
 #include "extern.h"
 #include "dmalloc.h"
 
-#undef lines 
+#undef lines
 
 #define NOOP(x) (x += 0)
 #define CCHAR(x) ( (char) (x & A_CHARTEXT) )
@@ -610,7 +610,7 @@ int	endmsg();
 void	enter_room(coord *cp);
 void	erase_lamp(coord *pos, struct room *rp);
 int	exp_add(THING *tp);
-void	extinguish(void (*func)());
+void	extinguish(void (*func)(int));
 void	fall(THING *obj, bool pr);
 void	fire_bolt(coord *start, coord *dir, char *name);
 char	floor_at();
@@ -618,7 +618,7 @@ void	flush_type();
 int	fight(coord *mp, THING *weap, bool thrown);
 int	fight_at(coord *mp, THING *weap, bool thrown, coord *delta);
 void	fix_stick(THING *cur);
-void	fuse(void (*func)(), int arg, int time, int type);
+void	fuse(void (*func)(int), int arg, int time, int type);
 bool	get_dir();
 int	gethand();
 void	give_pack(THING *tp);
@@ -626,7 +626,7 @@ void	help();
 void	hit(char *er, char *ee, bool noend);
 void	horiz(struct room *rp, int starty);
 void	leave_room(coord *cp);
-void	lengthen(void (*func)(), int xtime);
+void	lengthen(void (*func)(int), int xtime);
 void	look(bool wakeup);
 int	hit_monster(int y, int x, THING *obj);
 void	identify();
@@ -644,7 +644,7 @@ bool	inventory(THING *list, int type);
 void	check_inventory(THING *list);
 void	invis_on();
 void	killed(THING *tp, bool pr);
-void	kill_daemon(void (*func)());
+void	kill_daemon(void (*func)(int));
 bool	lock_sc();
 void	miss(char *er, char *ee, bool noend);
 void	missile(int ydelta, int xdelta);
@@ -707,7 +707,7 @@ void	show_map();
 void	show_win(char *message);
 int	sign(int nm);
 int	spread(int nm);
-void	start_daemon(void (*func)(), int arg, int type);
+void	start_daemon(void (*func)(int), int arg, int type);
 void	start_score();
 void	status();
 int	step_ok(int ch);
@@ -742,7 +742,7 @@ bool	fallpos(coord *pos, coord *newpos);
 #define FF_NOHERO             0x2       /* do not set coordinates on hero */
 bool	find_floor(struct room *rp, coord *cp, int limit, bool monst, int flags);
 bool	is_magic(THING *obj);
-bool    is_symlink(char *sp); 
+bool    is_symlink(char *sp);
 bool	levit_check();
 bool	pack_room(bool from_floor, THING *obj, bool need_pack_char, bool silent);
 bool	roll_em(THING *thatt, THING *thdef, THING *weap, bool hurl);
@@ -790,7 +790,7 @@ struct room	*roomin(coord *cp);
 
 extern struct delayed_action {
     int d_type;
-    void (*d_func)();
+    void (*d_func)(int d_arg);
     int d_arg;
     int d_time;
 } d_list[MAXDAEMONS];

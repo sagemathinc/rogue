@@ -137,7 +137,7 @@ int main(int argc, char **argv, char **envp) {
   if (LINES < NUMLINES || COLS < NUMCOLS) {
     endwin();
     printf("\nsorry, the screen is %dx%d, must be at least %dx%d\n", LINES,
-           COLS, NUMLINES, COLS, NUMCOLS);
+           COLS, NUMLINES, COLS);
     fflush(stdout);
     my_exit(1);
   }
