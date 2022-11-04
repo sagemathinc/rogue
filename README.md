@@ -1,6 +1,22 @@
 # ROGUE 5.3 - 5.4
 
-**- Modified to compile for ARM on buildroot -**
+DEMO: Got to https://cowasm.sh and type `rogue` to run this in your browser.
+
+**Modified to compile for WebAssembly as part of CoWasm**
+
+See https://github.com/sagemathinc/cowasm/tree/main/packages/rogue
+
+If you want to build this from source, instead get CoWasm
+from the link above, and build that.  This gets built as
+the package rogue in there.
+
+The main issue with porting to WebAssembly is that the function
+pointers must have valid signatures, but they don't. So I rewrote
+all functions used as fuses and daemons to have exactly one int 
+argument.  I also made a number of other misc style changes suggested
+by -Wall, and ran clang-format.
+
+---
 
 Rogue version 5.3-4.4.2020.1, derived from Rogue version 5.4.4 at https://github.com/Davidslv/rogue.git,
 
