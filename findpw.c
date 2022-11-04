@@ -15,13 +15,12 @@
 
 extern char *xcrypt(const char *, const char *);
 
-int main()
-{
-    char buf[80];
+int main() {
+  char buf[80];
 
-    fprintf(stderr, "Password: ");
-    fgets(buf, 80, stdin);
-    buf[strlen(buf) - 1] = '\0';
-    printf("\"%s\"\n", xcrypt(buf, "mT"));
-    return 0;
+  fprintf(stderr, "Password: ");
+  fgets(buf, 80, stdin);
+  buf[strlen(buf) - 1] = '\0';
+  printf("\"%s\"\n", xcrypt(buf, "mT"));
+  return 0;
 }

@@ -15,24 +15,19 @@
 #include <curses.h>
 #include "rogue.h"
 
-int total = 0;			/* total dynamic memory bytes */
+int total = 0; /* total dynamic memory bytes */
 
 /*
  * detach:
  *	takes an item out of whatever linked list it might be in
  */
 
-void
-detach(THING **list, THING *item)
-{
-    if (*list == item)
-	*list = next(item);
-    if (prev(item) != NULL)
-	item->l_prev->l_next = next(item);
-    if (next(item) != NULL)
-	item->l_next->l_prev = prev(item);
-    item->l_next = NULL;
-    item->l_prev = NULL;
+void detach(THING **list, THING *item) {
+  if (*list == item) *list = next(item);
+  if (prev(item) != NULL) item->l_prev->l_next = next(item);
+  if (next(item) != NULL) item->l_next->l_prev = prev(item);
+  item->l_next = NULL;
+  item->l_prev = NULL;
 }
 
 /*
@@ -40,21 +35,16 @@ detach(THING **list, THING *item)
  *	add an item to the head of a list
  */
 
-void
-attach(THING **list, THING *item)
-{
-    if (*list != NULL)
-    {
-	item->l_next = *list;
-	(*list)->l_prev = item;
-	item->l_prev = NULL;
-    }
-    else
-    {
-	item->l_next = NULL;
-	item->l_prev = NULL;
-    }
-    *list = item;
+void attach(THING **list, THING *item) {
+  if (*list != NULL) {
+    item->l_next = *list;
+    (*list)->l_prev = item;
+    item->l_prev = NULL;
+  } else {
+    item->l_next = NULL;
+    item->l_prev = NULL;
+  }
+  *list = item;
 }
 
 /*
@@ -62,17 +52,14 @@ attach(THING **list, THING *item)
  *	Throw the whole blamed thing away
  */
 
-void
-free_list(THING **ptr)
-{
-    THING *item;
+void free_list(THING **ptr) {
+  THING *item;
 
-    while (*ptr != NULL)
-    {
-	item = *ptr;
-	*ptr = next(item);
-	discard(item);
-    }
+  while (*ptr != NULL) {
+    item = *ptr;
+    *ptr = next(item);
+    discard(item);
+  }
 }
 
 /*
@@ -80,28 +67,24 @@ free_list(THING **ptr)
  *	Free up an item
  */
 
-void
-discard(THING *item)
-{
-    total--;
-    memfree((char *) item);
+void discard(THING *item) {
+  total--;
+  memfree((char *)item);
 }
 
 /*
  * new_item
  *	Get a new item with a specified size
  */
-THING *
-new_item()
-{
-    THING *item;
+THING *new_item() {
+  THING *item;
 
-    if ((item = memalloc(sizeof (THING))) == NULL)
-	fatal("ran out of memory after %d items", total);
-    else
-	total++;
-    memset(item, 0, sizeof (THING));
-    item->l_next = NULL;
-    item->l_prev = NULL;
-    return item;
+  if ((item = memalloc(sizeof(THING))) == NULL)
+    fatal("ran out of memory after %d items", total);
+  else
+    total++;
+  memset(item, 0, sizeof(THING));
+  item->l_next = NULL;
+  item->l_prev = NULL;
+  return item;
 }
