@@ -29,9 +29,6 @@
     SUCH DAMAGE.
 */
 
-// libncuses5 compatibility
-#define NCURSES_INTERNALS
-
 #include <stdlib.h>
 #include <string.h>
 
