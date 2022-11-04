@@ -5,11 +5,11 @@
 # Rogue: Exploring the Dungeons of Doom
 # Copyright (C) 1980-1983, 1985, 1999 Michael Toy, Ken Arnold and Glenn Wichman
 # All rights reserved.
-#       
+#
 # See the file LICENSE.TXT for full copyright and licensing information.
 #
 ###############################################################################
-        
+
 ###############################################################################
 # Site configuration occurs beneath this comment
 # Typically ./configure (autoconf tools) configures this section
@@ -26,10 +26,12 @@ O=o
 CC    = @CC@
 
 #CFLAGS=-O2
-CFLAGS= @CFLAGS@ 
+CFLAGS= @CFLAGS@
 
 #LIBS=-lcurses
 LIBS =	@LIBS@
+
+LDFLAGS= @LDFLAGS@
 
 #RM=rm -f
 RM    = rm -f
@@ -95,7 +97,7 @@ man6dir = $(mandir)/man6
 ###############################################################################
 # Site configuration occurs above this comment
 # It should not be necessary to change anything below this comment
-############################################################################### 
+###############################################################################
 
 HDRS     = rogue.h extern.h score.h
 OBJS1    = vers.$(O) extern.$(O) armor.$(O) chase.$(O) command.$(O) \
@@ -126,18 +128,18 @@ MISC     = Makefile.std LICENSE.TXT rogue54.sln rogue54.vcproj rogue.spec \
 
 .c.obj:
 	$(CC) $(CFLAGS) $(CPPFLAGS) /c $*.c
-    
+
 .c.o:
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $*.c
-    
+
 $(PROGRAM): $(HDRS) $(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) $(LIBS) -o $@
-    
+
 clean:
 	$(RM) $(OBJS1)
 	$(RM) $(OBJS2)
 	$(RM) core a.exe a.out a.exe.stackdump $(PROGRAM) $(PROGRAM).exe
-	$(RM) $(PROGRAM).tar $(PROGRAM).tar.gz $(PROGRAM).zip 
+	$(RM) $(PROGRAM).tar $(PROGRAM).tar.gz $(PROGRAM).zip
 	$(RM) *.log *.out
 	$(RM) -rf $(DISTNAME)
 
@@ -211,11 +213,11 @@ install: $(PROGRAM)
 	-if test ! -f $(DESTDIR)$(LOCKFILE)  ; then $(INSTALL) -m 0666 test $(DESTDIR)$(LOCKFILE)  ; $(RM) $(DESTDIR)$(LOCKFILE) ; fi
 	-$(RM) test
 
-uninstall:	
+uninstall:
 	-$(RM) $(DESTDIR)$(bindir)/$(PROGRAM)
 	-$(RM) $(DESTDIR)$(man6dir)/$(PROGRAM).6
 	-$(RM) $(DESTDIR)$(docdir)$(PROGRAM)/$(PROGRAM).doc
 	-$(RM) $(DESTDIR)$(LOCKFILE)
 	-$(RMDIR) $(DESTDIR)$(docdir)$(PROGRAM)
-    
+
 reinstall: uninstall install
